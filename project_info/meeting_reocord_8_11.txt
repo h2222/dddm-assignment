@@ -1,0 +1,21 @@
+DDDM Project
+
+时间线:
+
+1. report outline                 8月17 --- 9月6号 due
+2. report (paper + code)    8月24号 --- 10月24号 due
+3. PPT                                  8月24号 ---- 11月1号 due
+
+
+# letax
+https://www.overleaf.com/
+
+# GitHub
+# git 相关问题解决
+https://www.jianshu.com/p/e25c763b9816
+
+# git 分支解释
+https://baijiahao.baidu.com/s?id=1664197276209808372&wfr=spider&for=pc
+
+# weekly report
+https://docs.google.com/spreadsheets/d/1iQdJ0Pa4IuaLf6iYK1e2okFnNyykIqFs6GX2v9RzG4o/edit?usp=sharing
