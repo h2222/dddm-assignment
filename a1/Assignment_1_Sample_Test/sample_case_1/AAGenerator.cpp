@@ -20,12 +20,76 @@ void split(vector<T>& st_result, const string& s, const string& text)
 }
 
 
+void decide_query(string att1, string att2, map<string, string> m, string& q)
+{
+	map<string, string>::iterator iter;
+	string query;
+	string::size_type att1_idx, att2_idx;
+	for(iter = begin(m); iter != end(m); iter++)
+	{
+		query = iter->second;
+		att1_idx = query.find(att1);
+		att2_idx = query.find(att2);
+		if (att1_idx != string::npos && att2_idx != string::npos)
+		{
+			q = iter->first;
+			break;
+		}
+	} 
+}
+
+
+
+void generator(map<string, int>& attm, map<string, string>& quem, map<string, vector<int>>& accm)
+{	
+	map<string, int>::iterator iter1;
+	vector<string> att;
+	for (iter1 = begin(attm); iter1 != end(attm); iter1++)
+	{	
+		att.push_back(iter1->first);
+		cout << iter1->first << ": " << iter1->second << endl;
+	}
+
+	string q;
+	for (int i = 0; i < att.size(); i++)
+	{
+		for (int j = 0; j < att.size(); j++)
+		{
+			cout << att[i] << " " << att[j] << endl;
+			decide_query(att[i], att[j], quem, q);
+			cout << q << endl; // get query --> get acc ---> calculate AA (with regularization) 
+		}
+	}
+
+
+
+	
+	map<string, vector<int>>::iterator iter2;
+	for (iter2 = begin(accm); iter2 != end(accm); iter2++)
+	{
+		cout << iter2->first << ": ";
+		vector<int> temp = iter2->second;
+		for (int i : temp)
+		{
+
+			cout << i << " ";
+		}
+		cout << endl;
+	}
+	cout << "good" << endl;
+}
+
+
+
 int main(int argc, char* argv[])
 {
 	/*
 		that is how we split the string and save key value pairs into the map, which can be done in a second by python ! 
 	*/
 	vector<string> st_result;
+	map<string, int> attm;
+	map<string, string> quem;
+	map<string, vector<int>> accm;
 
 	for (int i = 1; i < argc; i++)
 	{
@@ -33,33 +97,25 @@ int main(int argc, char* argv[])
 		string att = "att";
 		string que = "query";
 		string acc = "acc";
-
+		
 		if (fname.find(att) != string::npos)
 		{
 			string as = "\\s+";
 			cout << fname << endl;	
-			map<string, string> attm;
 			fstream myfile(argv[i]);
 			string line;
 			getline(myfile, line); // jump first line 
 			while(getline(myfile, line))
 			{
 				split(st_result, as, line);
-				attm.insert(pair<string, string>(st_result[0], st_result[1]));
+				attm.insert(pair<string, int>(st_result[1], 0));
 				st_result.clear();
-			}
-			// print map contents
-			map<string, string>::iterator iter;
-			for (iter = begin(attm); iter != end(attm); iter++)
-			{
-				cout << iter->first << ":" << iter->second << endl;
-			}
+			} 
 		} 
 		else if (fname.find(que) != string::npos)
 		{
 			string qs = ":\\s+";
 			cout << fname << endl;	
-			map<string, string> quem;
 			fstream myfile(argv[i]);
 			string line;
 			while(getline(myfile, line))
@@ -68,18 +124,12 @@ int main(int argc, char* argv[])
 				quem.insert(pair<string, string>(st_result[0], st_result[1]));
 				st_result.clear();
 			}
-			map<string, string>::iterator iter;
-			for (iter = begin(quem); iter != end(quem); iter++)
-			{
-				cout << iter->first << ":" << iter->second << endl;
-			}
 		}
 		else if (fname.find(acc) != string::npos)
 		{
 			string cs = "\\s+";
 			vector<int> st_result_2;
 			cout << fname << endl;	
-			map<string, vector<int>> accm;
 			fstream myfile(argv[i]);
 			string line;
 			getline(myfile, line);
@@ -96,18 +146,8 @@ int main(int argc, char* argv[])
 				st_result_2.clear();
 				st_result.clear();
 			}
-			map<string, vector<int>>::iterator iter;
-			for (iter = begin(accm); iter != end(accm); iter++)
-			{
-				cout << iter->first << ": ";
-				vector<int> temp = iter->second;
-				for (int i : temp)
-				{
-					cout << i << " ";
-				}
-				cout << endl;
-			}
 		}
 	}
+	generator(attm, quem, accm);
 	return 0;
 }

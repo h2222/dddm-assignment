@@ -1,0 +1,11 @@
+ceil and floor in python
+https://www.geeksforgeeks.org/floor-ceil-function-python/
+
+what is ceil and floor? (wikipedia)
+https://en.wikipedia.org/wiki/Floor_and_ceiling_functions#:~:text=In%20mathematics%20and%20computer%20science,For%20example%2C%20and%20while%20.
+
+
+ceilling in latex
+https://oeis.org/wiki/Ceiling
+
+
