@@ -20,20 +20,18 @@ void split(vector<T>& st_result, const string& s, const string& text)
 }
 
 
-void decide_query(string att1, string att2, map<string, string> m, string& q)
+void decide_query(string att, map<string, string> m, vector<string>& q)
 {
 	map<string, string>::iterator iter;
 	string query;
-	string::size_type att1_idx, att2_idx;
+	string::size_type att_idx;
 	for(iter = begin(m); iter != end(m); iter++)
 	{
 		query = iter->second;
-		att1_idx = query.find(att1);
-		att2_idx = query.find(att2);
-		if (att1_idx != string::npos && att2_idx != string::npos)
+		att_idx = query.find(att);
+		if (att_idx != string::npos)
 		{
-			q = iter->first;
-			break;
+			q.push_back(iter->first);
 		}
 	} 
 }
@@ -50,14 +48,32 @@ void generator(map<string, int>& attm, map<string, string>& quem, map<string, ve
 		cout << iter1->first << ": " << iter1->second << endl;
 	}
 
-	string q;
+	vector<string> qi;
+	vector<string> qj;
 	for (int i = 0; i < att.size(); i++)
 	{
 		for (int j = 0; j < att.size(); j++)
 		{
 			cout << att[i] << " " << att[j] << endl;
-			decide_query(att[i], att[j], quem, q);
-			cout << q << endl; // get query --> get acc ---> calculate AA (with regularization) 
+			decide_query(att[i], quem, qi);
+			decide_query(att[j], quem, qj);
+			
+			// Ai_query(1, 2, 4), Aj_query(2, 3) -> Ai_k=1 = (q1, S1) + (q1, S2) + (q1, S3) -> aff 
+			for (string q : qi)
+			{
+				cout << q << " "; // query for Ai
+			}
+			cout <<" ";
+			cout << endl;
+
+			for (string q :qj)
+			{
+				cout << q << " "; // query for Aj
+			}
+			cout << endl;
+
+			qi.clear();
+			qj.clear();
 		}
 	}
 
@@ -69,14 +85,14 @@ void generator(map<string, int>& attm, map<string, string>& quem, map<string, ve
 	{
 		cout << iter2->first << ": ";
 		vector<int> temp = iter2->second;
-		for (int i : temp)
-		{
+		// for (int i : temp)
+		// {
 
-			cout << i << " ";
-		}
-		cout << endl;
+		// 	cout << i << " ";
+		// }
+		// cout << endl;
 	}
-	cout << "good" << endl;
+	// cout << "good" << endl;
 }
 
 
