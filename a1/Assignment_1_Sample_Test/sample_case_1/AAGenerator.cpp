@@ -4,8 +4,10 @@
 #include <map>
 #include <vector>
 #include <regex>
+#include <cmath>
 
 using namespace std;
+
 
 template <typename T>
 void split(vector<T>& st_result, const string& s, const string& text)
@@ -20,7 +22,36 @@ void split(vector<T>& st_result, const string& s, const string& text)
 }
 
 
-void decide_query(string att, map<string, string> m, vector<string>& q)
+bool isnum(char n)
+{
+	return (n >= '0'&&n <= '9');
+}
+
+
+int* get_num_from_string(string & ch)
+{
+	int k = ch.size();
+	int* num = new int[k];
+	int result;
+	int n = 0;
+	int i = 0;
+	while (n<k) 
+	{
+		result = 0;
+		if (isnum(ch[n]))
+		{
+			result = ch[n] - '0';
+			while (n < k && isnum(ch[++n]))
+				result = (ch[n] - '0') + 10 * result;
+				num[i++] = result;
+		}
+		++n;
+	}
+	return num;
+}
+
+
+void get_q_from_att(string att, map<string, string> m, vector<string>& q)
 {
 	map<string, string>::iterator iter;
 	string query;
@@ -37,64 +68,109 @@ void decide_query(string att, map<string, string> m, vector<string>& q)
 }
 
 
+map<string, int> get_A_from_q(vector<string>& q_list, map<string, vector<int>>& accm)
+{
+	map<string, int> A_q;
+	for (string q : q_list)
+	{
+		int A = 0;
+		for (int i : accm[q])
+		{
+			A += i;
+		}
+		A_q.insert(pair<string, int>(q, A));
+	}
+	return A_q;
+}
 
-void generator(map<string, int>& attm, map<string, string>& quem, map<string, vector<int>>& accm)
+
+int get_AA_from_A(map<string, int>& A_i_q, map<string, int>& A_j_q, vector<string>& que_names)
+{
+	int sum_A_i = 0;
+	int sum_A_j = 0;
+	int sum_A_i_j = 0;
+	double sqrt_mul_Ai_Aj = 0.1;
+	int result = 0;
+	map<string, int>::iterator iter2;
+	for (iter2 = begin(A_i_q); iter2 != end(A_i_q); iter2++)
+	{
+		sum_A_i += iter2->second;
+	}
+	for (iter2 = begin(A_j_q); iter2 != end(A_j_q); iter2++)
+	{
+		sum_A_j += iter2->second;
+	}
+	for (string n : que_names)
+	{
+		if (A_i_q.count(n) != 0 && A_j_q.count(n) != 0)
+		{
+			cout << n << ": ";
+			cout << A_i_q[n] <<" "<< A_j_q[n] << endl;
+			sum_A_i_j += (A_i_q[n] * A_j_q[n]);
+		}
+	}
+	sqrt_mul_Ai_Aj = sqrt(sum_A_i * sum_A_j);
+	result =  ceil(sum_A_i_j / sqrt_mul_Ai_Aj);
+	sum_A_i_j = 0;
+	sum_A_i = 0;
+	sum_A_j = 0;
+	return result;
+}
+
+
+void generator(map<string, string>& attm, map<string, string>& quem, map<string, vector<int>>& accm)
 {	
-	map<string, int>::iterator iter1;
-	vector<string> att;
+	map<string, string>::iterator iter1;
+	vector<string> att_labels;
+	vector<string> que_names;
+	ofstream out("aa_test.txt");
 	for (iter1 = begin(attm); iter1 != end(attm); iter1++)
 	{	
-		att.push_back(iter1->first);
-		cout << iter1->first << ": " << iter1->second << endl;
+		att_labels.push_back(iter1->first);
+		cout << iter1->first << ":" << iter1->second << endl;
 	}
-
+	for (iter1 = begin(quem); iter1 != end(quem); iter1++)
+	{
+		que_names.push_back(iter1->first);
+	}
 	vector<string> qi;
 	vector<string> qj;
-	for (int i = 0; i < att.size(); i++)
+	int* cuti;
+	int* cutj;
+	int** aa_matrix = new int* [att_labels.size()];
+	// int aa_matrix[att_labels.size()][att_labels.size()];
+	for (int i = 0; i < att_labels.size(); i++)
 	{
-		for (int j = 0; j < att.size(); j++)
+		aa_matrix[i] = new int [att_labels.size()];
+		for (int j = 0; j < att_labels.size(); j++)
 		{
-			cout << att[i] << " " << att[j] << endl;
-			decide_query(att[i], quem, qi);
-			decide_query(att[j], quem, qj);
-			
+			// A1, A1 -> A1, A2 -> A1, A3
+			cout << att_labels[i] << " " << att_labels[j] << endl;
+			cuti = get_num_from_string(att_labels[i]);
+			cutj = get_num_from_string(att_labels[j]);
+			cout <<"cut1::" << cuti[0] << endl;
+			cout <<"cut2::" << cutj[0] << endl;
+			get_q_from_att(attm[att_labels[i]], quem, qi);
+			get_q_from_att(attm[att_labels[j]], quem, qj);
 			// Ai_query(1, 2, 4), Aj_query(2, 3) -> Ai_k=1 = (q1, S1) + (q1, S2) + (q1, S3) -> aff 
-			for (string q : qi)
-			{
-				cout << q << " "; // query for Ai
-			}
-			cout <<" ";
-			cout << endl;
-
-			for (string q :qj)
-			{
-				cout << q << " "; // query for Aj
-			}
-			cout << endl;
-
+			map<string, int> A_i_q = get_A_from_q(qi, accm);
+			map<string, int> A_j_q = get_A_from_q(qj, accm);
+			int aa_result = get_AA_from_A(A_i_q, A_j_q, que_names);
+			aa_matrix[cuti[0]-1][cutj[0]-1] = aa_result;
 			qi.clear();
 			qj.clear();
 		}
 	}
-
-
-
-	
-	map<string, vector<int>>::iterator iter2;
-	for (iter2 = begin(accm); iter2 != end(accm); iter2++)
+	for (int i = 0; i < att_labels.size(); i++)
 	{
-		cout << iter2->first << ": ";
-		vector<int> temp = iter2->second;
-		// for (int i : temp)
-		// {
-
-		// 	cout << i << " ";
-		// }
-		// cout << endl;
+		for (int j = 0; j < att_labels.size(); j++)
+		{
+			out << aa_matrix[i][j] << " ";
+		}
+		out << endl;
 	}
-	// cout << "good" << endl;
+	out.close();
 }
-
 
 
 int main(int argc, char* argv[])
@@ -103,10 +179,9 @@ int main(int argc, char* argv[])
 		that is how we split the string and save key value pairs into the map, which can be done in a second by python ! 
 	*/
 	vector<string> st_result;
-	map<string, int> attm;
+	map<string, string> attm;
 	map<string, string> quem;
 	map<string, vector<int>> accm;
-
 	for (int i = 1; i < argc; i++)
 	{
 		string fname = argv[i];
@@ -124,7 +199,7 @@ int main(int argc, char* argv[])
 			while(getline(myfile, line))
 			{
 				split(st_result, as, line);
-				attm.insert(pair<string, int>(st_result[1], 0));
+				attm.insert(pair<string, string>(st_result[0], st_result[1]));
 				st_result.clear();
 			} 
 		} 
