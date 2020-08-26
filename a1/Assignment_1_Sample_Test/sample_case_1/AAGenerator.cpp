@@ -104,8 +104,6 @@ int get_AA_from_A(map<string, int>& A_i_q, map<string, int>& A_j_q, vector<strin
 	{
 		if (A_i_q.count(n) != 0 && A_j_q.count(n) != 0)
 		{
-			cout << n << ": ";
-			cout << A_i_q[n] <<" "<< A_j_q[n] << endl;
 			sum_A_i_j += (A_i_q[n] * A_j_q[n]);
 		}
 	}
@@ -123,11 +121,9 @@ void generator(map<string, string>& attm, map<string, string>& quem, map<string,
 	map<string, string>::iterator iter1;
 	vector<string> att_labels;
 	vector<string> que_names;
-	ofstream out("aa_test.txt");
 	for (iter1 = begin(attm); iter1 != end(attm); iter1++)
 	{	
 		att_labels.push_back(iter1->first);
-		cout << iter1->first << ":" << iter1->second << endl;
 	}
 	for (iter1 = begin(quem); iter1 != end(quem); iter1++)
 	{
@@ -145,11 +141,8 @@ void generator(map<string, string>& attm, map<string, string>& quem, map<string,
 		for (int j = 0; j < att_labels.size(); j++)
 		{
 			// A1, A1 -> A1, A2 -> A1, A3
-			cout << att_labels[i] << " " << att_labels[j] << endl;
 			cuti = get_num_from_string(att_labels[i]);
 			cutj = get_num_from_string(att_labels[j]);
-			cout <<"cut1::" << cuti[0] << endl;
-			cout <<"cut2::" << cutj[0] << endl;
 			get_q_from_att(attm[att_labels[i]], quem, qi);
 			get_q_from_att(attm[att_labels[j]], quem, qj);
 			// Ai_query(1, 2, 4), Aj_query(2, 3) -> Ai_k=1 = (q1, S1) + (q1, S2) + (q1, S3) -> aff 
@@ -165,11 +158,10 @@ void generator(map<string, string>& attm, map<string, string>& quem, map<string,
 	{
 		for (int j = 0; j < att_labels.size(); j++)
 		{
-			out << aa_matrix[i][j] << " ";
+			cout << aa_matrix[i][j] << " ";
 		}
-		out << endl;
+		cout << endl;
 	}
-	out.close();
 }
 
 
@@ -192,7 +184,6 @@ int main(int argc, char* argv[])
 		if (fname.find(att) != string::npos)
 		{
 			string as = "\\s+";
-			cout << fname << endl;	
 			fstream myfile(argv[i]);
 			string line;
 			getline(myfile, line); // jump first line 
@@ -206,7 +197,6 @@ int main(int argc, char* argv[])
 		else if (fname.find(que) != string::npos)
 		{
 			string qs = ":\\s+";
-			cout << fname << endl;	
 			fstream myfile(argv[i]);
 			string line;
 			while(getline(myfile, line))
@@ -220,7 +210,6 @@ int main(int argc, char* argv[])
 		{
 			string cs = "\\s+";
 			vector<int> st_result_2;
-			cout << fname << endl;	
 			fstream myfile(argv[i]);
 			string line;
 			getline(myfile, line);
