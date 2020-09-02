@@ -9,6 +9,9 @@
 using namespace std;
 
 
+
+
+
 template <typename T>
 void split(vector<T>& st_result, string& s, string& text)
 {
@@ -58,7 +61,7 @@ bool isnum(char n)
 }
 
 
-int* get_num_from_string(string & ch)
+int* get_num_from_string(string ch)
 {
 	int k = ch.size();
 	int* num = new int[k];
@@ -164,11 +167,33 @@ int get_AA_from_A(map<string, int>& A_i_q, map<string, int>& A_j_q, vector<strin
 	return result;
 }
 
+
 bool comp(string a, string b)
 {
 	int* an = get_num_from_string(a);
 	int* bn = get_num_from_string(b);
 	return an[0] < bn[0];
+}
+
+
+void vsort(vector<string>& v)
+{
+	int len = v.size();
+	int a_rr[len];
+	for(int i = 1; i < len; i++)
+	{
+		for (int j = 0; j < len - i; j++)
+		{
+			int* an = get_num_from_string(v[j]);
+			int* bn = get_num_from_string(v[j+1]);
+			if (an[0] > bn[0])
+			{
+				string temp = v[j];
+				v[j] = v[j+1];
+				v[j+1] = temp;
+			}
+		}
+	}
 }
 
 
@@ -181,12 +206,12 @@ void generator(map<string, string>& attm, map<string, string>& quem, map<string,
 	{
 		att_labels.push_back(iter1->first);
 	}
-	sort(begin(att_labels), end(att_labels), comp);
+	vsort(att_labels);
 	for (iter1 = begin(quem); iter1 != end(quem); iter1++)
 	{
 		que_names.push_back(iter1->first);
 	}
-	sort(begin(que_names), end(que_names), comp);
+	vsort(que_names);
 	map<string, int> qi; // <qk， qk_use>
 	map<string, int> qj;
 	int* cuti;

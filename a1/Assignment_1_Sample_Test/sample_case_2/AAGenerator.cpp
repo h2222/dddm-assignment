@@ -10,7 +10,7 @@ using namespace std;
 
 
 template <typename T>
-void split(vector<T>& st_result, string& s, string& text)
+void split(vector<T>& st_result, const string& s, const string& text)
 {
 	regex st(s);
 	vector<string> result(sregex_token_iterator(begin(text), end(text), st, -1),
@@ -85,13 +85,16 @@ void get_q_from_att(string att, map<string, string> m, map<string, int>& q)
 {
 	map<string, string>::iterator iter;
 	string query;
+	// string::size_type att_idx;
 	for(iter = begin(m); iter != end(m); iter++)
 	{
 		query = iter->second;
+		// att_idx = query.find(att); // 改一下  LOC 可以比配 BLOCK
 		int use = match(att, query);
 		if (use != 0) 
 		{
 			q.insert(pair<string, int>(iter->first, 1));
+			// q.push_back(iter->first);
 		}
 		
 	} 
@@ -110,7 +113,7 @@ map<string, int> get_A_from_q(map<string, int>& q_map, map<string, vector<int>>&
 		int A = 0;
 		for (int i : accm[q])
 		{
-			A += use * i;  // + 1 x sum(access_map[q])
+			A += use * i;  // + use x sum(access_map[q])
 		}
 		// cout << "query: " << q << ", A: " << A << endl;
 		A_q.insert(pair<string, int>(q, A));
@@ -164,7 +167,7 @@ int get_AA_from_A(map<string, int>& A_i_q, map<string, int>& A_j_q, vector<strin
 	return result;
 }
 
-bool comp(string a, string b)
+bool comp(string& a, string& b)
 {
 	int* an = get_num_from_string(a);
 	int* bn = get_num_from_string(b);
