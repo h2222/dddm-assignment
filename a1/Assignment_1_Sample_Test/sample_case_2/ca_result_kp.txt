@@ -1,0 +1,1012 @@
+
+        0     1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16    17    18    19    20
+
+0       0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+1       0     277   0     0     0     0     0     0     202   0     0     0     0     159   0     0     0     0     0     166   0     
+2       0     0     278   0     0     0     0     0     98    0     0     0     0     0     0     142   0     203   145   0     0     
+3       0     0     0     294   171   0     0     191   0     0     0     0     0     0     0     0     0     0     0     0     0     
+4       0     0     0     171   291   192   0     111   0     0     0     0     0     116   168   0     0     0     0     0     0     
+5       0     0     0     0     192   292   0     0     0     0     0     172   0     116   168   123   0     0     0     0     0     
+6       0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+7       0     0     0     191   111   0     0     241   53    117   0     0     102   0     0     0     0     0     66    0     0     
+8       0     202   98    0     0     0     0     53    262   96    0     0     0     116   0     0     0     0     107   122   0     
+9       0     0     0     0     0     0     0     117   96    211   0     0     0     0     0     0     0     0     0     0     0     
+10      0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+11      0     0     0     0     0     172   0     0     0     0     0     295   0     0     0     211   0     0     0     0     0     
+12      0     0     0     0     0     0     0     102   0     0     0     0     193   0     0     0     0     0     125   0     0     
+13      0     159   0     0     116   116   0     0     116   0     0     0     0     295   0     0     0     0     0     0     0     
+14      0     0     0     0     168   168   0     0     0     0     0     0     0     0     290   0     0     0     0     0     0     
+15      0     0     142   0     0     123   0     0     0     0     0     211   0     0     0     290   0     199   0     0     0     
+16      0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+17      0     0     203   0     0     0     0     0     0     0     0     0     0     0     0     199   0     283   0     0     0     
+18      0     0     145   0     0     0     0     66    107   0     0     0     125   0     0     0     0     0     239   0     0     
+19      0     166   0     0     0     0     0     0     122   0     0     0     0     0     0     0     0     0     0     247   0     
+20      0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+
+
+after changing
+
+0     16    10    6     9     7     3     4    14     5     11    15    17    13    1     19    8     2     18    12   20
+
+0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+0     0     0     0     0     0     0     0     0     0     0     0     0     159   277   166   202   0     0     0     0     
+0     0     0     0     0     0     0     0     0     0     0     142   203   0     0     0     98    278   145   0     0     
+0     0     0     0     0     191   294   171   0     0     0     0     0     0     0     0     0     0     0     0     0     
+0     0     0     0     0     111   171   291   168   192   0     0     0     116   0     0     0     0     0     0     0     
+0     0     0     0     0     0     0     192   168   292   172   123   0     116   0     0     0     0     0     0     0     
+0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+0     0     0     0     117   241   191   111   0     0     0     0     0     0     0     0     53    0     66    102   0     
+0     0     0     0     96    53    0     0     0     0     0     0     0     116   202   122   262   98    107   0     0     
+0     0     0     0     211   117   0     0     0     0     0     0     0     0     0     0     96    0     0     0     0     
+0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+0     0     0     0     0     0     0     0     0     172   295   211   0     0     0     0     0     0     0     0     0     
+0     0     0     0     0     102   0     0     0     0     0     0     0     0     0     0     0     0     125   193   0     
+0     0     0     0     0     0     0     116   0     116   0     0     0     295   159   0     116   0     0     0     0     
+0     0     0     0     0     0     0     168   290   168   0     0     0     0     0     0     0     0     0     0     0     
+0     0     0     0     0     0     0     0     0     123   211   290   199   0     0     0     0     142   0     0     0     
+0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+0     0     0     0     0     0     0     0     0     0     0     199   283   0     0     0     0     203   0     0     0     
+0     0     0     0     0     66    0     0     0     0     0     0     0     0     0     0     107   145   239   125   0     
+0     0     0     0     0     0     0     0     0     0     0     0     0     0     166   247   122   0     0     0     0     
+0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     0     
+
+
+
+
+
+
+(i-1): 0 (i): 1 (index): 3
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 1 (i): 2 (index): 3
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -39592
+(index-1): 2 (index): 3 (index+1): 4
+bond[index - 1, index]: 0
+bond[index, index + 1]: 121236
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 242472
+(i-1): 0 (i): 1 (index): 4
+bond[i - 1, index]: 0
+bond[index, i]: 18444
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 36888
+(i-1): 1 (i): 2 (index): 4
+bond[i - 1, index]: 18444
+bond[index, i]: 0
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -2704
+(i-1): 2 (i): 3 (index): 4
+bond[i - 1, index]: 0
+bond[index, i]: 121236
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 242472
+(index-1): 3 (index): 4 (index+1): 5
+bond[index - 1, index]: 121236
+bond[index, index + 1]: 153616
+bond[index - 1, index + 1]: 32832
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 484040
+(i-1): 0 (i): 1 (index): 5
+bond[i - 1, index]: 0
+bond[index, i]: 18444
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 36888
+(i-1): 1 (i): 2 (index): 5
+bond[i - 1, index]: 18444
+bond[index, i]: 17466
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 32228
+(i-1): 2 (i): 3 (index): 5
+bond[i - 1, index]: 17466
+bond[index, i]: 32832
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 100596
+(i-1): 3 (i): 4 (index): 5
+bond[i - 1, index]: 32832
+bond[index, i]: 153616
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 130424
+(index-1): 4 (index): 5 (index+1): 6
+bond[index - 1, index]: 153616
+bond[index, index + 1]: 0
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 307232
+(i-1): 0 (i): 1 (index): 6
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 1 (i): 2 (index): 6
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -39592
+(i-1): 2 (i): 3 (index): 6
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 3 (i): 4 (index): 6
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -242472
+(i-1): 4 (i): 5 (index): 6
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -307232
+(index-1): 5 (index): 6 (index+1): 7
+bond[index - 1, index]: 0
+bond[index, index + 1]: 0
+bond[index - 1, index + 1]: 21312
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == -42624
+(i-1): 0 (i): 1 (index): 7
+bond[i - 1, index]: 0
+bond[index, i]: 10706
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 21412
+(i-1): 1 (i): 2 (index): 7
+bond[i - 1, index]: 10706
+bond[index, i]: 14764
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 11348
+(i-1): 2 (i): 3 (index): 7
+bond[i - 1, index]: 14764
+bond[index, i]: 121166
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 271860
+(i-1): 3 (i): 4 (index): 7
+bond[i - 1, index]: 121166
+bond[index, i]: 91713
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 183286
+(i-1): 4 (i): 5 (index): 7
+bond[i - 1, index]: 91713
+bond[index, i]: 21312
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -81182
+(i-1): 5 (i): 6 (index): 7
+bond[i - 1, index]: 21312
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 42624
+(index-1): 6 (index): 7 (index+1): 8
+bond[index - 1, index]: 0
+bond[index, index + 1]: 44953
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 89906
+(i-1): 0 (i): 1 (index): 8
+bond[i - 1, index]: 0
+bond[index, i]: 147574
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 295148
+(i-1): 1 (i): 2 (index): 8
+bond[i - 1, index]: 147574
+bond[index, i]: 68435
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 392426
+(i-1): 2 (i): 3 (index): 8
+bond[i - 1, index]: 68435
+bond[index, i]: 10123
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 157116
+(i-1): 3 (i): 4 (index): 8
+bond[i - 1, index]: 10123
+bond[index, i]: 19339
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -183548
+(i-1): 4 (i): 5 (index): 8
+bond[i - 1, index]: 19339
+bond[index, i]: 13456
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -241642
+(i-1): 5 (i): 6 (index): 8
+bond[i - 1, index]: 13456
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 26912
+(i-1): 6 (i): 7 (index): 8
+bond[i - 1, index]: 0
+bond[index, i]: 44953
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 89906
+(index-1): 7 (index): 8 (index+1): 9
+bond[index - 1, index]: 44953
+bond[index, index + 1]: 51609
+bond[index - 1, index + 1]: 57972
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 77180
+(i-1): 0 (i): 1 (index): 9
+bond[i - 1, index]: 0
+bond[index, i]: 19392
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 38784
+(i-1): 1 (i): 2 (index): 9
+bond[i - 1, index]: 19392
+bond[index, i]: 9408
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 18008
+(i-1): 2 (i): 3 (index): 9
+bond[i - 1, index]: 9408
+bond[index, i]: 22347
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 63510
+(i-1): 3 (i): 4 (index): 9
+bond[i - 1, index]: 22347
+bond[index, i]: 12987
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -171804
+(i-1): 4 (i): 5 (index): 9
+bond[i - 1, index]: 12987
+bond[index, i]: 0
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -281258
+(i-1): 5 (i): 6 (index): 9
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 6 (i): 7 (index): 9
+bond[i - 1, index]: 0
+bond[index, i]: 57972
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 115944
+(i-1): 7 (i): 8 (index): 9
+bond[i - 1, index]: 57972
+bond[index, i]: 51609
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 129256
+(index-1): 8 (index): 9 (index+1): 10
+bond[index - 1, index]: 51609
+bond[index, index + 1]: 0
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 103218
+(i-1): 0 (i): 1 (index): 10
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 1 (i): 2 (index): 10
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -39592
+(i-1): 2 (i): 3 (index): 10
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 3 (i): 4 (index): 10
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -242472
+(i-1): 4 (i): 5 (index): 10
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -307232
+(i-1): 5 (i): 6 (index): 10
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 6 (i): 7 (index): 10
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 7 (i): 8 (index): 10
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -89906
+(i-1): 8 (i): 9 (index): 10
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -103218
+(index-1): 9 (index): 10 (index+1): 11
+bond[index - 1, index]: 0
+bond[index, index + 1]: 0
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 0
+(i-1): 0 (i): 1 (index): 11
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 1 (i): 2 (index): 11
+bond[i - 1, index]: 0
+bond[index, i]: 29962
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 20332
+(i-1): 2 (i): 3 (index): 11
+bond[i - 1, index]: 29962
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 59924
+(i-1): 3 (i): 4 (index): 11
+bond[i - 1, index]: 0
+bond[index, i]: 33024
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -176424
+(i-1): 4 (i): 5 (index): 11
+bond[i - 1, index]: 33024
+bond[index, i]: 126917
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 12650
+(i-1): 5 (i): 6 (index): 11
+bond[i - 1, index]: 126917
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 253834
+(i-1): 6 (i): 7 (index): 11
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 7 (i): 8 (index): 11
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -89906
+(i-1): 8 (i): 9 (index): 11
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -103218
+(i-1): 9 (i): 10 (index): 11
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(index-1): 10 (index): 11 (index+1): 12
+bond[index - 1, index]: 0
+bond[index, index + 1]: 0
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 0
+(i-1): 0 (i): 1 (index): 12
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 1 (i): 2 (index): 12
+bond[i - 1, index]: 0
+bond[index, i]: 18125
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -3342
+(i-1): 2 (i): 3 (index): 12
+bond[i - 1, index]: 18125
+bond[index, i]: 19482
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 75214
+(i-1): 3 (i): 4 (index): 12
+bond[i - 1, index]: 19482
+bond[index, i]: 11322
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -180864
+(i-1): 4 (i): 5 (index): 12
+bond[i - 1, index]: 11322
+bond[index, i]: 0
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -284588
+(i-1): 5 (i): 6 (index): 12
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 6 (i): 7 (index): 12
+bond[i - 1, index]: 0
+bond[index, i]: 52518
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 105036
+(i-1): 7 (i): 8 (index): 12
+bond[i - 1, index]: 52518
+bond[index, i]: 18781
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 52692
+(i-1): 8 (i): 9 (index): 12
+bond[i - 1, index]: 18781
+bond[index, i]: 11934
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -41788
+(i-1): 9 (i): 10 (index): 12
+bond[i - 1, index]: 11934
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 23868
+(i-1): 10 (i): 11 (index): 12
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(index-1): 11 (index): 12 (index+1): 13
+bond[index - 1, index]: 0
+bond[index, index + 1]: 0
+bond[index - 1, index + 1]: 19952
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == -39904
+(i-1): 0 (i): 1 (index): 13
+bond[i - 1, index]: 0
+bond[index, i]: 114380
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 228760
+(i-1): 1 (i): 2 (index): 13
+bond[i - 1, index]: 114380
+bond[index, i]: 11368
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 211904
+(i-1): 2 (i): 3 (index): 13
+bond[i - 1, index]: 11368
+bond[index, i]: 19836
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 62408
+(i-1): 3 (i): 4 (index): 13
+bond[i - 1, index]: 19836
+bond[index, i]: 90248
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -22304
+(i-1): 4 (i): 5 (index): 13
+bond[i - 1, index]: 90248
+bond[index, i]: 90364
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 53992
+(i-1): 5 (i): 6 (index): 13
+bond[i - 1, index]: 90364
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 180728
+(i-1): 6 (i): 7 (index): 13
+bond[i - 1, index]: 0
+bond[index, i]: 19024
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 38048
+(i-1): 7 (i): 8 (index): 13
+bond[i - 1, index]: 19024
+bond[index, i]: 96730
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 141602
+(i-1): 8 (i): 9 (index): 13
+bond[i - 1, index]: 96730
+bond[index, i]: 11136
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 112514
+(i-1): 9 (i): 10 (index): 13
+bond[i - 1, index]: 11136
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 22272
+(i-1): 10 (i): 11 (index): 13
+bond[i - 1, index]: 0
+bond[index, i]: 19952
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 39904
+(i-1): 11 (i): 12 (index): 13
+bond[i - 1, index]: 19952
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 39904
+(index-1): 12 (index): 13 (index+1): 14
+bond[index - 1, index]: 0
+bond[index, index + 1]: 38976
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 77952
+(i-1): 0 (i): 1 (index): 14
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 1 (i): 2 (index): 14
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -39592
+(i-1): 2 (i): 3 (index): 14
+bond[i - 1, index]: 0
+bond[index, i]: 28728
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 57456
+(i-1): 3 (i): 4 (index): 14
+bond[i - 1, index]: 28728
+bond[index, i]: 129864
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 74712
+(i-1): 4 (i): 5 (index): 14
+bond[i - 1, index]: 129864
+bond[index, i]: 130032
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 212560
+(i-1): 5 (i): 6 (index): 14
+bond[i - 1, index]: 130032
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 260064
+(i-1): 6 (i): 7 (index): 14
+bond[i - 1, index]: 0
+bond[index, i]: 18648
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 37296
+(i-1): 7 (i): 8 (index): 14
+bond[i - 1, index]: 18648
+bond[index, i]: 0
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -52610
+(i-1): 8 (i): 9 (index): 14
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -103218
+(i-1): 9 (i): 10 (index): 14
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 10 (i): 11 (index): 14
+bond[i - 1, index]: 0
+bond[index, i]: 28896
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 57792
+(i-1): 11 (i): 12 (index): 14
+bond[i - 1, index]: 28896
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 57792
+(i-1): 12 (i): 13 (index): 14
+bond[i - 1, index]: 0
+bond[index, i]: 38976
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 77952
+(index-1): 13 (index): 14 (index+1): 15
+bond[index - 1, index]: 38976
+bond[index, index + 1]: 20664
+bond[index - 1, index + 1]: 14268
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 90744
+(i-1): 0 (i): 1 (index): 15
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 1 (i): 2 (index): 15
+bond[i - 1, index]: 0
+bond[index, i]: 121053
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 202514
+(i-1): 2 (i): 3 (index): 15
+bond[i - 1, index]: 121053
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 242106
+(i-1): 3 (i): 4 (index): 15
+bond[i - 1, index]: 0
+bond[index, i]: 23616
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -195240
+(i-1): 4 (i): 5 (index): 15
+bond[i - 1, index]: 23616
+bond[index, i]: 107878
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -44244
+(i-1): 5 (i): 6 (index): 15
+bond[i - 1, index]: 107878
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 215756
+(i-1): 6 (i): 7 (index): 15
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 7 (i): 8 (index): 15
+bond[i - 1, index]: 0
+bond[index, i]: 13916
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -62074
+(i-1): 8 (i): 9 (index): 15
+bond[i - 1, index]: 13916
+bond[index, i]: 0
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -75386
+(i-1): 9 (i): 10 (index): 15
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 10 (i): 11 (index): 15
+bond[i - 1, index]: 0
+bond[index, i]: 144591
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 289182
+(i-1): 11 (i): 12 (index): 15
+bond[i - 1, index]: 144591
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 289182
+(i-1): 12 (i): 13 (index): 15
+bond[i - 1, index]: 0
+bond[index, i]: 14268
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 28536
+(i-1): 13 (i): 14 (index): 15
+bond[i - 1, index]: 14268
+bond[index, i]: 20664
+bond[i - 1, i]: 38976
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -8088
+(index-1): 14 (index): 15 (index+1): 16
+bond[index - 1, index]: 20664
+bond[index, index + 1]: 0
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 41328
+(i-1): 0 (i): 1 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 1 (i): 2 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -39592
+(i-1): 2 (i): 3 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 3 (i): 4 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -242472
+(i-1): 4 (i): 5 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -307232
+(i-1): 5 (i): 6 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 6 (i): 7 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 7 (i): 8 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -89906
+(i-1): 8 (i): 9 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -103218
+(i-1): 9 (i): 10 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 10 (i): 11 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 11 (i): 12 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 12 (i): 13 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 13 (i): 14 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 38976
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -77952
+(i-1): 14 (i): 15 (index): 16
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 20664
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -41328
+(index-1): 15 (index): 16 (index+1): 17
+bond[index - 1, index]: 0
+bond[index, index + 1]: 0
+bond[index - 1, index + 1]: 142853
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == -285706
+(i-1): 0 (i): 1 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 1 (i): 2 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 142141
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 244690
+(i-1): 2 (i): 3 (index): 17
+bond[i - 1, index]: 142141
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 284282
+(i-1): 3 (i): 4 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -242472
+(i-1): 4 (i): 5 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 24477
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -258278
+(i-1): 5 (i): 6 (index): 17
+bond[i - 1, index]: 24477
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 48954
+(i-1): 6 (i): 7 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 7 (i): 8 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 19894
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -50118
+(i-1): 8 (i): 9 (index): 17
+bond[i - 1, index]: 19894
+bond[index, i]: 0
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -63430
+(i-1): 9 (i): 10 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 10 (i): 11 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 41989
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 83978
+(i-1): 11 (i): 12 (index): 17
+bond[i - 1, index]: 41989
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 83978
+(i-1): 12 (i): 13 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 13 (i): 14 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 38976
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -77952
+(i-1): 14 (i): 15 (index): 17
+bond[i - 1, index]: 0
+bond[index, i]: 142853
+bond[i - 1, i]: 20664
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 244378
+(i-1): 15 (i): 16 (index): 17
+bond[i - 1, index]: 142853
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 285706
+(index-1): 16 (index): 17 (index+1): 18
+bond[index - 1, index]: 0
+bond[index, index + 1]: 29435
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 58870
+(i-1): 0 (i): 1 (index): 18
+bond[i - 1, index]: 0
+bond[index, i]: 21614
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 43228
+(i-1): 1 (i): 2 (index): 18
+bond[i - 1, index]: 21614
+bond[index, i]: 85451
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 174538
+(i-1): 2 (i): 3 (index): 18
+bond[i - 1, index]: 85451
+bond[index, i]: 12606
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 196114
+(i-1): 3 (i): 4 (index): 18
+bond[i - 1, index]: 12606
+bond[index, i]: 7326
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -202608
+(i-1): 4 (i): 5 (index): 18
+bond[i - 1, index]: 7326
+bond[index, i]: 0
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -292580
+(i-1): 5 (i): 6 (index): 18
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 6 (i): 7 (index): 18
+bond[i - 1, index]: 0
+bond[index, i]: 50101
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 100202
+(i-1): 7 (i): 8 (index): 18
+bond[i - 1, index]: 50101
+bond[index, i]: 71315
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 152926
+(i-1): 8 (i): 9 (index): 18
+bond[i - 1, index]: 71315
+bond[index, i]: 17994
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 75400
+(i-1): 9 (i): 10 (index): 18
+bond[i - 1, index]: 17994
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 35988
+(i-1): 10 (i): 11 (index): 18
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 11 (i): 12 (index): 18
+bond[i - 1, index]: 0
+bond[index, i]: 60732
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 121464
+(i-1): 12 (i): 13 (index): 18
+bond[i - 1, index]: 60732
+bond[index, i]: 12412
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 146288
+(i-1): 13 (i): 14 (index): 18
+bond[i - 1, index]: 12412
+bond[index, i]: 0
+bond[i - 1, i]: 38976
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -53128
+(i-1): 14 (i): 15 (index): 18
+bond[i - 1, index]: 0
+bond[index, i]: 20590
+bond[i - 1, i]: 20664
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -148
+(i-1): 15 (i): 16 (index): 18
+bond[i - 1, index]: 20590
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 41180
+(i-1): 16 (i): 17 (index): 18
+bond[i - 1, index]: 0
+bond[index, i]: 29435
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 58870
+(index-1): 17 (index): 18 (index+1): 19
+bond[index - 1, index]: 29435
+bond[index, index + 1]: 13054
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 84978
+(i-1): 0 (i): 1 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 111628
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 223256
+(i-1): 1 (i): 2 (index): 19
+bond[i - 1, index]: 111628
+bond[index, i]: 11956
+bond[i - 1, i]: 19796
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 207576
+(i-1): 2 (i): 3 (index): 19
+bond[i - 1, index]: 11956
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 23912
+(i-1): 3 (i): 4 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 121236
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -242472
+(i-1): 4 (i): 5 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 153616
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -307232
+(i-1): 5 (i): 6 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 6 (i): 7 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 6466
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 12932
+(i-1): 7 (i): 8 (index): 19
+bond[i - 1, index]: 6466
+bond[index, i]: 95630
+bond[i - 1, i]: 44953
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 114286
+(i-1): 8 (i): 9 (index): 19
+bond[i - 1, index]: 95630
+bond[index, i]: 11712
+bond[i - 1, i]: 51609
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 111466
+(i-1): 9 (i): 10 (index): 19
+bond[i - 1, index]: 11712
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 23424
+(i-1): 10 (i): 11 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 11 (i): 12 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 12 (i): 13 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 40546
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 81092
+(i-1): 13 (i): 14 (index): 19
+bond[i - 1, index]: 40546
+bond[index, i]: 0
+bond[i - 1, i]: 38976
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 3140
+(i-1): 14 (i): 15 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 20664
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -41328
+(i-1): 15 (i): 16 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 16 (i): 17 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 0
+bond[i - 1, i]: 0
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == 0
+(i-1): 17 (i): 18 (index): 19
+bond[i - 1, index]: 0
+bond[index, i]: 13054
+bond[i - 1, i]: 29435
+2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == -32762
+(index-1): 18 (index): 19 (index+1): 20
+bond[index - 1, index]: 13054
+bond[index, index + 1]: 0
+bond[index - 1, index + 1]: 0
+2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == 26108
+      A1     A2     A3     A4
+A1    247 0 166 0 122 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+A2    0 295 159 0 116 0 0 0 0 0 0 0 116 0 0 0 116 0 0 
+A3    166 159 277 0 202 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+A4    0 0 0 239 107 145 66 0 0 0 125 0 0 0 0 0 0 0 0 
+A5    122 116 202 107 262 98 53 0 0 0 0 0 0 0 0 96 0 0 0 
+A6    0 0 0 145 98 278 0 0 0 0 0 0 0 142 0 0 0 203 0 
+A7    0 0 0 66 53 0 241 0 0 0 102 191 111 0 0 117 0 0 0 
+A8    0 0 0 0 0 0 0 290 0 0 0 0 168 0 0 0 168 0 0 
+A9    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+A10    0 0 0 0 0 0 0 0 0 295 0 0 0 211 0 0 172 0 0 
+A11    0 0 0 125 0 0 102 0 0 0 193 0 0 0 0 0 0 0 0 
+A12    0 0 0 0 0 0 191 0 0 0 0 294 171 0 0 0 0 0 0 
+A13    0 116 0 0 0 0 111 168 0 0 0 171 291 0 0 0 192 0 0 
+A14    0 0 0 0 0 142 0 0 0 211 0 0 0 290 0 0 123 199 0 
+A15    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+A16    0 0 0 0 96 0 117 0 0 0 0 0 0 0 0 211 0 0 0 
+A17    0 116 0 0 0 0 0 168 0 172 0 0 192 123 0 0 292 0 0 
+A18    0 0 0 0 0 203 0 0 0 0 0 0 0 199 0 0 0 283 0 
+A19    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 

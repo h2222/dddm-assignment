@@ -3,24 +3,25 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <regex>
 #include <cmath>
 
 using namespace std;
 
 
-
-
-
-template <typename T>
+template<typename T>
 void split(vector<T>& st_result, string& s, string& text)
 {
-	regex st(s);
-	vector<string> result(sregex_token_iterator(begin(text), end(text), st, -1),
-			sregex_token_iterator());
-	for(string i : result)
+	int s_len = s.length();
+	int start = 0;
+	int index;
+	while ((index = text.find(s, start)) != -1)
 	{
-		st_result.push_back(i);
+		st_result.push_back(text.substr(start, index - start));
+		start = index + s_len;
+	}
+	if (start < text.length())
+	{
+		st_result.push_back(text.substr(start, text.length() - start));
 	}
 }
 
@@ -178,7 +179,7 @@ bool comp(string a, string b)
 
 void vsort(vector<string>& v)
 {
-	int len = v.size();
+	const int len = v.size();
 	int a_rr[len];
 	for(int i = 1; i < len; i++)
 	{
@@ -267,7 +268,7 @@ int main(int argc, char* argv[])
 		
 		if (fname.find(att) != string::npos)
 		{
-			string as = "\\s+";
+			string as = " ";
 			fstream myfile(argv[i]);
 			string line;
 			getline(myfile, line); // jump first line 
@@ -281,7 +282,7 @@ int main(int argc, char* argv[])
 		} 
 		else if (fname.find(que) != string::npos)
 		{
-			string qs = ":\\s+";
+			string qs = ": ";
 			fstream myfile(argv[i]);
 			string line;
 			while(getline(myfile, line))
@@ -294,7 +295,7 @@ int main(int argc, char* argv[])
 		}
 		else if (fname.find(acc) != string::npos)
 		{
-			string cs = "\\s+";
+			string cs = " ";
 			vector<int> st_result_2;
 			fstream myfile(argv[i]);
 			string line;
