@@ -3,21 +3,25 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <regex>
 #include <cmath>
 
 using namespace std;
 
 
-template <typename T>
-void split(vector<T>& st_result, const string& s, const string& text)
+template<typename T>
+void split(vector<T>& st_result, string& s, string& text)
 {
-	regex st(s);
-	vector<string> result(sregex_token_iterator(begin(text), end(text), st, -1),
-			sregex_token_iterator());
-	for(string i : result)
+	int s_len = s.length();
+	int start = 0;
+	int index;
+	while ((index = text.find(s, start)) != -1)
 	{
-		st_result.push_back(i);
+		st_result.push_back(text.substr(start, index - start));
+		start = index + s_len;
+	}
+	if (start < text.length())
+	{
+		st_result.push_back(text.substr(start, text.length() - start));
 	}
 }
 
@@ -58,7 +62,7 @@ bool isnum(char n)
 }
 
 
-int* get_num_from_string(string & ch)
+int* get_num_from_string(string ch)
 {
 	int k = ch.size();
 	int* num = new int[k];
@@ -85,16 +89,13 @@ void get_q_from_att(string att, map<string, string> m, map<string, int>& q)
 {
 	map<string, string>::iterator iter;
 	string query;
-	// string::size_type att_idx;
 	for(iter = begin(m); iter != end(m); iter++)
 	{
 		query = iter->second;
-		// att_idx = query.find(att); // 改一下  LOC 可以比配 BLOCK
 		int use = match(att, query);
 		if (use != 0) 
 		{
 			q.insert(pair<string, int>(iter->first, 1));
-			// q.push_back(iter->first);
 		}
 		
 	} 
@@ -113,7 +114,7 @@ map<string, int> get_A_from_q(map<string, int>& q_map, map<string, vector<int>>&
 		int A = 0;
 		for (int i : accm[q])
 		{
-			A += use * i;  // + use x sum(access_map[q])
+			A += use * i;  // + 1 x sum(access_map[q])
 		}
 		// cout << "query: " << q << ", A: " << A << endl;
 		A_q.insert(pair<string, int>(q, A));
@@ -167,11 +168,33 @@ int get_AA_from_A(map<string, int>& A_i_q, map<string, int>& A_j_q, vector<strin
 	return result;
 }
 
-bool comp(string& a, string& b)
+
+bool comp(string a, string b)
 {
 	int* an = get_num_from_string(a);
 	int* bn = get_num_from_string(b);
 	return an[0] < bn[0];
+}
+
+
+void vsort(vector<string>& v)
+{
+	const int len = v.size();
+	int a_rr[len];
+	for(int i = 1; i < len; i++)
+	{
+		for (int j = 0; j < len - i; j++)
+		{
+			int* an = get_num_from_string(v[j]);
+			int* bn = get_num_from_string(v[j+1]);
+			if (an[0] > bn[0])
+			{
+				string temp = v[j];
+				v[j] = v[j+1];
+				v[j+1] = temp;
+			}
+		}
+	}
 }
 
 
@@ -184,12 +207,12 @@ void generator(map<string, string>& attm, map<string, string>& quem, map<string,
 	{
 		att_labels.push_back(iter1->first);
 	}
-	sort(begin(att_labels), end(att_labels), comp);
+	vsort(att_labels);
 	for (iter1 = begin(quem); iter1 != end(quem); iter1++)
 	{
 		que_names.push_back(iter1->first);
 	}
-	sort(begin(que_names), end(que_names), comp);
+	vsort(que_names);
 	map<string, int> qi; // <qk， qk_use>
 	map<string, int> qj;
 	int* cuti;
@@ -245,7 +268,7 @@ int main(int argc, char* argv[])
 		
 		if (fname.find(att) != string::npos)
 		{
-			string as = "\\s+";
+			string as = " ";
 			fstream myfile(argv[i]);
 			string line;
 			getline(myfile, line); // jump first line 
@@ -259,7 +282,7 @@ int main(int argc, char* argv[])
 		} 
 		else if (fname.find(que) != string::npos)
 		{
-			string qs = ":\\s+";
+			string qs = ": ";
 			fstream myfile(argv[i]);
 			string line;
 			while(getline(myfile, line))
@@ -272,7 +295,7 @@ int main(int argc, char* argv[])
 		}
 		else if (fname.find(acc) != string::npos)
 		{
-			string cs = "\\s+";
+			string cs = " ";
 			vector<int> st_result_2;
 			fstream myfile(argv[i]);
 			string line;
