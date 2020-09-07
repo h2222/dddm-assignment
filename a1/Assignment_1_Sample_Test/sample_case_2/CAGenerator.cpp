@@ -205,9 +205,11 @@ void generator(int** AA_p, int** AA_p_c, int size)
         cout << "(index-1): " << index - 1 << "    (index): " << index << "    (index+1): " << index + 1 << endl;
         int bb1 = bond(AA_p, index - 1, index, size);
         cout << "bond[index - 1, index]: " << bb1 << endl;
-        int bb2 = bond(AA_p, index, index + 1, size);
+        // int bb2 = bond(AA_p, index, index + 1, size);
+        int bb2 = bond(AA_p, index, 0, size);
         cout << "bond[index, index + 1]: " << bb2 << endl;
-        int bb3 = bond(AA_p, index - 1, index + 1, size);
+        // int bb3 = bond(AA_p, index - 1, index + 1, size);
+        int bb3 = bond(AA_p, index - 1, 0, size);
         cout << "bond[index - 1, index + 1]: " << bb3 << endl;
         int cont2 = 2 * bb1 + 2 * bb2 - 2 * bb3;
         cout << "2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == " << cont2 << endl;
