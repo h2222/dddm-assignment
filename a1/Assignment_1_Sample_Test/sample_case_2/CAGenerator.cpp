@@ -28,22 +28,20 @@ void split(vector<T>& st_result, const string& s, const string& text)
 
 int bond(int** AA_p, int a, int b, int size)
 {
-
     // fix matrix order 
-    int AA_p_c[size][size];
-    for (int i = 0; i < size; i++)
-    {
-        for (int j = 0; j < size; j++)
-        {
-            AA_p_c[i][j] = AA_p[i][j];
-            // cout << AA_p_c[i][j] << "    ";
-        }
-    }  
-
+    // int AA_p_c[size][size];
+    // for (int i = 0; i < size; i++)
+    // {
+    //     for (int j = 0; j < size; j++)
+    //     {
+    //         AA_p_c[i][j] = AA_p[i][j];
+    //         // cout << AA_p_c[i][j] << "    ";
+    //     }
+    // }  
     int res = 0;
     for (int i = 0; i < size; i++)
     {
-        res += AA_p_c[i][a] * AA_p_c[i][b];
+        res += AA_p[i][a] * AA_p[i][b];
     }
     return res;
 }
@@ -78,22 +76,27 @@ void transfer(int** CA_p, int** AA_p, int index, int best_position, int size)
 }
 
 
-void transfer_v3(int** AA_p, int* temp, int size)
+int** transfer_v3(int** AA_p_1c, int* temp, int size)
 {
-    int** CA_p = new int* [size];
-    int AA_p_c[size][size];
+    int AA_p_2c [size][size];
     for (int i = 0; i < size; i++)
     {
         for (int j = 0; j < size; j++)
         {
-            AA_p_c[i][j] = AA_p[i][j];
-            // cout << AA_p_c[i][j] << "    ";
+            AA_p_2c[i][j] = AA_p_1c[i][j];
         }
-    }    
+    }
+ 
+    int** CA_p = new int* [size];
     for (int i = 0; i < size; i++)
     {
-        CA_p[i] = AA_p_c[temp[i]];
+        CA_p[i] = new int [size];
+        for (int j = 0; j < size; j++)
+        {
+            CA_p[i][j] = AA_p_2c[temp[i]][j];
+        }
     }
+
     for (int i = 0; i < size; i++)
     {
         for(int j = 0; j < i; j++)
@@ -112,6 +115,7 @@ void transfer_v3(int** AA_p, int* temp, int size)
         }
         cout << endl;
     }
+    return CA_p;
 }
 
 
@@ -162,22 +166,22 @@ int* transfer_v2(int* temp, const int best_position, const int index, const int 
 
 
 
-void generator(int** AA_p, int size)
+void generator(int** AA_p, int** AA_p_c, int size)
 {
-    int** CA_p = new int* [size];
-    map<int, int> idx_loc;
-    CA_p[0] = AA_p[0];
-    CA_p[size - 1] = AA_p[size - 1];
-    CA_p[1] = AA_p[1];
-    CA_p[2] = AA_p[2];    
+    // int** CA_p = new int* [size];
+    // map<int, int> idx_loc;
+    // CA_p[0] = AA_p[0];
+    // CA_p[size - 1] = AA_p[size - 1];
+    // CA_p[1] = AA_p[1];
+    // CA_p[2] = AA_p[2];    
     int index = 3;
-    int* temp = new int [size]; //= {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-    
+    int* temp = new int [size]; //= {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};    
     for (int i = 0; i < size; i++)
     {
         temp[i] = i;
-        cout << temp[i] << " ";
+        cout << temp[i] << "    ";
     }
+    // origin AA
     cout << endl;
     cout << "initailization" << endl;
 
@@ -186,7 +190,7 @@ void generator(int** AA_p, int size)
         int* loc = new int[index+1];
         for (int i = 1; i <= index - 1; i++)
         {
-            cout << "(i-1): " << i - 1 << " (i): " << i << " (index): " << index << endl;
+            cout << "(i-1): " << i - 1 << "    (i): " << i << "    (index): " << index << endl;
             int b1 = bond(AA_p, i - 1, index, size);
             cout << "bond[i - 1, index]: " << b1 << endl;
             int b2 = bond(AA_p, index, i, size);
@@ -195,9 +199,10 @@ void generator(int** AA_p, int size)
             cout << "bond[i - 1, i]: " << b3 << endl;
             int cont1 = 2 * b1 + 2 * b2 - 2 * b3;
             cout << "2 x bond(i-1, index) + 2 x bond(index, i) - 2 x bond(i-1, i) == " << cont1 << endl;
+            cout << "------------------------------------------------------------" << endl;
             loc[i] = cont1;
         }
-        cout << "(index-1): " << index - 1 << " (index): " << index << " (index+1): " << index + 1 << endl;
+        cout << "(index-1): " << index - 1 << "    (index): " << index << "    (index+1): " << index + 1 << endl;
         int bb1 = bond(AA_p, index - 1, index, size);
         cout << "bond[index - 1, index]: " << bb1 << endl;
         int bb2 = bond(AA_p, index, index + 1, size);
@@ -208,15 +213,25 @@ void generator(int** AA_p, int size)
         cout << "2 x bond(index-1, index) + 2 x bond(index, index+1) - 2 x bond(index-1, index+i) == " << cont2 << endl;
         loc[index] = cont2;
         int best_position = arg_max_index(loc, index);  // GET THE BEST POSITION OF THE CA COLUMN.
-        idx_loc.insert(pair<int, int>(index, best_position));
+        // idx_loc.insert(pair<int, int>(index, best_position));
         temp = transfer_v2(temp, best_position, index, size);
         cout << "ORDER" << endl;
         for (int i = 0; i < size; i++)
         {
             cout << temp[i] << "    ";
         }
+        // cout << endl;
+        // cout << "origin" << endl;
+        // for (int i = 0; i < size; i++)
+        // {
+        //     for (int j = 0; j < size; j++)
+        //     {
+        //         cout << AA_p_c[i][j] << "    ";
+        //     }
+        //     cout << endl;
+        // }
         cout << endl;
-        transfer_v3(AA_p, temp, size);
+        AA_p = transfer_v3(AA_p_c, temp, size);
         // transfer(CA_p, AA_p, index, best_position, size);
         index++;
         cout << endl;
@@ -282,35 +297,35 @@ int main(int argc, char* argv[])
         }
     }
     size += 2;
+    int** AA_p_c = new int* [size];
     int** AA_p = new int* [size]; 
     for (int i = 0; i < size; i++)
     {
+        AA_p_c[i] = new int [size];
         AA_p[i] = new int [size];
         for (int j = 0; j < size; j++)
         {
             if (i == 0 || j == 0 || i == size - 1 || j == size - 1)
             {
                 AA_p[i][j] = 0;
+                AA_p_c[i][j] = 0;
             }
             else
             {
-                AA_p[i][j] = stoi(line_save[ (i - 1) * (size - 2) + (j - 1)]); 
+                AA_p[i][j] = stoi(line_save[(i - 1) * (size - 2) + (j - 1)]); 
+                AA_p_c[i][j] = stoi(line_save[(i - 1) * (size - 2) + (j - 1)]); 
             }
         }
     }
-
-    cout << "array length: "<< size << endl;
-    // for (int i = 0; i < size; i++)
-    // {
-    //     // int r = temp[i];
-    //     for (int j = 0; j < size; j++)
-    //     {
-    //         int c = temp[j];
-    //         cout << AA_p[i][c] << "     ";
-    //     }
-    //     cout << endl;
-    // }
-    generator(AA_p, size);
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            cout << AA_p_c[i][j] << "     ";
+        }
+        cout << endl;
+    }
+    generator(AA_p, AA_p_c, size);
 
 
     // int temp[size] = {0, 16, 10, 6, 9, 7, 3, 4, 14, 5, 11, 15, 17, 13, 1, 19, 8, 2, 18, 12, 20};
