@@ -121,7 +121,7 @@ int main(int argc, char const *argv[])
      
         if (ave_arr_time != 0 && out_port != 443)
         {
-            cout << addr << " " << fixed << setprecision(2) << ave_arr_time << " " << ave_pk_length << endl;
+            cout << addr << " || \t" << fixed << setprecision(2) << ave_arr_time << " " << ave_pk_length << endl;
         }
     }
 
