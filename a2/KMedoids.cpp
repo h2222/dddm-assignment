@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <string>
 #include <map>
@@ -32,9 +33,9 @@ void split_by_space(vector<string>& st_result, string& text)
 }
 
 
-map<string, map<string, int>> compute(map<string, map<string, vector<int>>>& addr_m)
+map<string, map<string, float>> compute(map<string, map<string, vector<int>>>& addr_m)
 {
-    map<string, map<string, int>> comp_res;
+    map<string, map<string, float>> comp_res;
     map<string, map<string, vector<int>>>::iterator iter;
     for (iter = begin(addr_m); iter != end(addr_m); iter++)
     {
@@ -75,13 +76,20 @@ int main(int argc, char const *argv[])
     fstream myfile(argv[1]);
     getline(myfile, line); // jump
     vector<string> line_split;
+    vector<string> addr_ls;
+    vector<int> out_port_ls;
     map<string, map<string, vector<int>>> addr_m;
 
     
     while (getline(myfile, line))
     {
         split_by_space(line_split, line);
-        string addr = line_split[0];
+        string in_addr = line_split[0];
+        string in_p = line_split[1];
+        string out_addr = line_split[2];
+        string out_p = line_split[3];
+        string addr = in_addr + " " + in_p + " " + out_addr + " " + out_p;
+        // cout << addr << endl;
         int arr_time = stoi(line_split[5]);
         int pk_len = stoi(line_split[6]);
         // cout << "addr : " << addr << " arr_time: " << arr_time << " pk_len: " << pk_len << endl;
@@ -90,6 +98,8 @@ int main(int argc, char const *argv[])
             map<string, vector<int>> calcu_m;
             vector<int> ar_time_v;
             vector<int> pk_len_v;
+            addr_ls.push_back(addr);
+            out_port_ls.push_back(stoi(out_p));
             addr_m.insert(pair<string, map<string, vector<int>>>(addr, calcu_m));
             map<string, map<string, vector<int>>>::iterator iter = addr_m.find(addr);
             iter->second.insert(pair<string, vector<int>>(arrive_time_k, ar_time_v));
@@ -100,22 +110,32 @@ int main(int argc, char const *argv[])
         // cout << line_split.size() << endl;  
         line_split.clear();
     }
-    map<string, map<string, int>> comp_res= compute(addr_m);
+    map<string, map<string, float>> comp_res= compute(addr_m);
 
-    map<string, map<string, int>>::iterator iter;
-    for (iter = begin(comp_res); iter != end(comp_res); iter++)
+    for (int i = 0; i < addr_ls.size(); i++)
     {
-        cout << iter->first << endl;
-        string arr_t_k = iter->second.find(ave_arr_time_k)->first;
-        int arr_t_v = iter->second.find(ave_arr_time_k)->second;
-        string pk_len_k = iter->second.find(ave_pk_len_k)->first;
-        int pk_len_v = iter->second.find(ave_pk_len_k)->second;
-        cout << arr_t_k << ":" << arr_t_v << endl;
-        cout << pk_len_k << ":" << pk_len_v << endl;
+        string addr = addr_ls[i];
+        int out_port = out_port_ls[i];
+        float ave_arr_time = comp_res.find(addr)->second.find(ave_arr_time_k)->second;
+        float ave_pk_length = comp_res.find(addr)->second.find(ave_pk_len_k)->second;
+     
+        if (ave_arr_time != 0 && out_port != 443)
+        {
+            cout << addr << " " << fixed << setprecision(2) << ave_arr_time << " " << ave_pk_length << endl;
+        }
     }
 
 
-    
-
+    // map<string, map<string, int>>::iterator iter;
+    // for (iter = begin(comp_res); iter != end(comp_res); iter++)
+    // {
+    //     cout << iter->first << endl;
+    //     string arr_t_k = iter->second.find(ave_arr_time_k)->first;
+    //     int arr_t_v = iter->second.find(ave_arr_time_k)->second;
+    //     string pk_len_k = iter->second.find(ave_pk_len_k)->first;
+    //     int pk_len_v = iter->second.find(ave_pk_len_k)->second;
+    //     cout << arr_t_k << ":" << arr_t_v << endl;
+    //     cout << pk_len_k << ":" << pk_len_v << endl;
+    // }
     return 0;
 }
