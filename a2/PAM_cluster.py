@@ -20,8 +20,11 @@ def total_cost(dataMat, medoids):
     k = len(med_idx)
     cost = 0
     med_obj = dataMat[med_idx, :]
+    # print(med_obj.shape)
     dis = cdist(dataMat, med_obj, 'euclidean') # 所有样本到中心点的距离
+    # print("distance shape: {}".format(dis.shape))
     cost = dis.min(axis=1).sum() # 判责函数
+    # print(cost)
     medoids['t_cost'] = cost
 
 
@@ -32,8 +35,9 @@ def assment(dataMat, medoids):
     med = dataMat[med_idx] # 促中心对象
     k = len(med_idx) # 促个数
     dis = cdist(dataMat, med, 'euclidean')
-    # print(dis)
+    # print(dis)s
     idx = dis.argmin(axis=1) # 最小距离对应的idx
+    # print(idx)
     for i in range(k):
         medoids[i] = np.where(idx == i) # 字典, 数据已idx的形式存在在对应的分类里
 
@@ -44,6 +48,7 @@ def PAM(data, k):
     N = len(data)
     cur_medoids = {}
     cur_medoids['cen_idx'] = random.sample(set(range(N)), k) # 在所有数据中, 随机选取k个点最为初始促中心
+    print(cur_medoids['cen_idx'])
     assment(data, cur_medoids) # 初始聚类
     print(cur_medoids)
     total_cost(data, cur_medoids) # 计算初始促中心的E
@@ -61,10 +66,16 @@ def PAM(data, k):
                 if i != j: # 对非中心点一次替换为中心点
                     temp_medoids = copy.deepcopy(cur_medoids)
                     temp_medoids['cen_idx'][j] = i #挨个替换促中心idx
+                    for i in temp_medoids['cen_idx']:
+                        a = temp_medoids['cen_idx'].count(i)
+                        if a > 1:
+                            print(temp_medoids['cen_idx'])
+                    # print(temp_medoids['cen_idx'])
                     assment(data, temp_medoids)
                     total_cost(data, temp_medoids)
                     if best_medoids['t_cost'] > temp_medoids['t_cost']:
                         best_medoids = copy.deepcopy(temp_medoids)
+            print(" ")
         cur_medoids = copy.deepcopy(best_medoids)
         print('current total cost is: %d' % cur_medoids['t_cost'])
     return cur_medoids
@@ -90,6 +101,7 @@ def run_pam(k=3, dim=2, N=100):
     d3 = np.random.normal(3, .5, (N, dim))
 
     data = np.vstack((d1, d2, d3))
+    print(data.shape)
     medoids = PAM(data, k)
     graph(data, medoids)
 
