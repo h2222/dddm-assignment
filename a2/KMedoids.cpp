@@ -12,8 +12,7 @@ const string arrive_time_k = "arrive_time";
 const string package_len_k = "package_len";
 const string ave_arr_time_k = "ave_arrive_time";
 const string ave_pk_len_k = "ave_package_len";
-const string cen_idx_k = "cen_idx";
-const string total_cost_k = "total_cost_k";
+const string cen_idx_k = "cen_idx_k";
 const string min_idx_ls_k = "min_idx_ls_k";
 const string min_ls_k = "min_ls_k";
 
@@ -102,9 +101,9 @@ int argmin(float* f_list, int k)
 }
 
 
-/* implementing min
+/* min (float version)
 */
-int min(float* f_list, int k)
+float min(float* f_list, int k)
 {
     float res_f = 0xffffff;
     for (int i = 0; i < k; i++)
@@ -114,9 +113,9 @@ int min(float* f_list, int k)
             res_f = f_list[i];
         }
     }
-    int res_i = (int) (res_f * 100); // time 100 for get 2 last reminder
-    return res_i;
+    return res_f;
 }
+
 
 /* computing eclud distance between each feature values 
 */
@@ -132,23 +131,40 @@ map<string, int*> comp_min_dist(float** data, float** med_obj, int k, int len)
         for (int j = 0; j < k; j++)
         {
             dist_mat[i][j] = comp_dist(data[i], med_obj[j]);
-            // cout << dist_mat[i][j] << " ";
         }
-        // cout << endl;
         min_idx_ls[i] = argmin(dist_mat[i], k);
+    }
+    // cout << "[";
+    // for (int i = 0; i < len; i++)
+    // {
+    //     cout << min_idx_ls[i] << ", ";
+    // }
+    // cout << "]" << endl;
+    res[min_idx_ls_k] = min_idx_ls;
+    return res;
+}
+
+
+float* comp_total_cost(float** data, float** med_obj, int k, int len)
+{
+    float** dist_mat = new float* [len];
+    float* min_ls = new float [len];
+    for (int i = 0; i < len; i++)
+    {
+        dist_mat[i] = new float[k];
+        for (int j = 0; j < k; j++)
+        {
+            dist_mat[i][j] = comp_dist(data[i], med_obj[j]);
+        }
         min_ls[i] = min(dist_mat[i], k);
     }
-    res[min_idx_ls_k] = min_idx_ls;
-    res[min_ls_k] = min_ls;
-    // cout << len << endl;
-    // cout << k << endl;
-    return res;
+    return min_ls;
 }
 
 
 // k medoids clustering alg
 
-void assment(float** data, map<string, vector<int>>& cur_medoids, int k, int len)
+void assment(float** data, map<string, vector<int>>& cur_medoids, float& total_cost, int k, int len)
 {  
     float** med_obj = new float* [k];
     for (int i = 0; i < k; i++)
@@ -157,20 +173,17 @@ void assment(float** data, map<string, vector<int>>& cur_medoids, int k, int len
         int idx = cur_medoids[cen_idx_k][i]; // medoids index
         med_obj[i] = data[idx];
     }
+    
+    // arrange data into cluster
     map<string, int*> min_idx_and_value = comp_min_dist(data, med_obj, k, len); // min distance for each row of data
     int* min_idx_ls = min_idx_and_value[min_idx_ls_k];
-    int* min_ls = min_idx_and_value[min_ls_k];
 
-    // total cost
-    vector<int> total_c;
-    float total_cost = 0;
     for (int i = 0; i < len; i++)
     {
-        total_cost += min_ls[i];
+        cout << min_idx_ls[i] << " ";
     }
-    total_c.push_back(total_cost);
-    cur_medoids[total_cost_k] = total_c;
-    
+    cout << endl;
+
     for (int i = 0; i < k; i++)
     {
         vector<int> cluster_idx;
@@ -180,9 +193,41 @@ void assment(float** data, map<string, vector<int>>& cur_medoids, int k, int len
             {
                 cluster_idx.push_back(j);
             }
-            cur_medoids[to_string(i)] = cluster_idx;
         }
+        cur_medoids[to_string(i)] = cluster_idx;
     }
+
+    // for test
+    for (int i : cur_medoids[cen_idx_k])
+    {
+        cout << i << ": ";
+        for (int j : cur_medoids[to_string(i)])
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+
+
+    // total cost
+    float* min_ls = comp_total_cost(data, med_obj, k, len);
+    for (int i = 0; i < len; i++)
+    {
+        total_cost += min_ls[i];
+    }
+}
+
+/* add 
+*/
+
+int add(vector<int> v)
+{
+    int res = 0;
+    for (int i : v)
+    {
+        res += i;
+    }
+    return res;
 }
 
 
@@ -205,7 +250,12 @@ set<int> convert_to_set(vector<int> v)
  {
     for (string key : key_vec)
     {
-        m_to[key] = m_from[key];
+        vector<int> temp_v;
+        for (int i : m_from[key])
+        {
+            temp_v.push_back(i);
+        }
+        m_to[key] = temp_v;
     }
  }
 
@@ -218,11 +268,11 @@ int k_medoids_cluster(float** data, int len, int k, vector<int> med_idx)
     vector<string> key_vec;
     set<int> cur_med_idx_s;
     set<int> old_med_idx_s;
+    float total_cost = 0.;
     int iter_counter = 1;
     cur_medoids[cen_idx_k] = med_idx;
-    assment(data, cur_medoids, k, len);
+    assment(data, cur_medoids, total_cost, k, len);
     old_medoids[cen_idx_k] = old_cen_idx;
-
 
     cur_med_idx_s = convert_to_set(cur_medoids[cen_idx_k]);
     old_med_idx_s = convert_to_set(old_medoids[cen_idx_k]);
@@ -232,30 +282,27 @@ int k_medoids_cluster(float** data, int len, int k, vector<int> med_idx)
         key_vec.push_back(iter->first);
     }
     
-    cout << "origin" << endl;
+    cout << "------- origin --------" << endl;
     for (int i : cur_medoids[cen_idx_k])
     {
         cout << i << " ";
     }
-    
     cout << endl;
-
+    for (int i : cur_medoids[cen_idx_k])
+    {
+        cout << i << ": ";
+        for (int j : cur_medoids[to_string(i)])
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
 
     while (cur_med_idx_s != old_med_idx_s)
     {
-        // for (int i : cur_med_idx_s)
-        // {
-        //     cout << i << " ";
-        // }
-        // cout << endl;
-
-        // for (int i : old_med_idx_s)
-        // {
-        //     cout << i << " ";
-        // }
         cout << endl;
         cout << "---------  iteration count: " << iter_counter++ << "  ----------" << endl;
-        cout << " before iterating, the total cost is :" << cur_medoids[total_cost_k][0] << endl;
+        cout << " before iterating, the total cost is :" << total_cost << endl;
         map<string, vector<int>> best_medoids;
         map_copy(cur_medoids, best_medoids, key_vec);
         map_copy(cur_medoids, old_medoids, key_vec);
@@ -265,6 +312,7 @@ int k_medoids_cluster(float** data, int len, int k, vector<int> med_idx)
             {
                 if (i != j)
                 {
+                    float temp_total_cost = 0.;
                     map<string, vector<int>> temp_medoids;
                     map_copy(cur_medoids, temp_medoids, key_vec);
                     temp_medoids[cen_idx_k][j] = i;
@@ -273,8 +321,12 @@ int k_medoids_cluster(float** data, int len, int k, vector<int> med_idx)
                     //     cout << i << " ";
                     // }
                     // cout << endl;
-                    assment(data, temp_medoids, k, len);
-                    if (best_medoids[total_cost_k][0] > temp_medoids[total_cost_k][0])
+                    assment(data, temp_medoids, temp_total_cost, k, len);
+                    if (total_cost > temp_total_cost)
+                    {
+                        total_cost = temp_total_cost;
+                        map_copy(temp_medoids, best_medoids, key_vec);
+                    } else if( (total_cost == temp_total_cost) & (add(temp_medoids[cen_idx_k]) < add(cur_medoids[cen_idx_k])))
                     {
                         map_copy(temp_medoids, best_medoids, key_vec);
                     }
@@ -289,7 +341,33 @@ int k_medoids_cluster(float** data, int len, int k, vector<int> med_idx)
         map_copy(best_medoids, cur_medoids, key_vec);
         cur_med_idx_s = convert_to_set(cur_medoids[cen_idx_k]);
         old_med_idx_s = convert_to_set(old_medoids[cen_idx_k]);
-        cout << "current total cost is : " << cur_medoids[total_cost_k][0] << endl;
+        cout << "current total cost is : " << total_cost << endl;
+        for (int i : cur_medoids[cen_idx_k])
+        {
+            cout << i << ": ";
+            for (int j : cur_medoids[to_string(i)])
+            {
+                cout << j << " ";
+            }
+            cout << endl;
+        }
+    }
+
+    cout << "------- final ---------" << endl;
+    cout << total_cost << endl;
+    for (int i : cur_medoids[cen_idx_k])
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+    for (int i : cur_medoids[cen_idx_k])
+    {
+        cout << i << ": ";
+        for (int j : cur_medoids[to_string(i)])
+        {
+            cout << j << " ";
+        }
+        cout << endl;
     }
     return 0;
 }

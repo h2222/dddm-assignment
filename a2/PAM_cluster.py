@@ -21,7 +21,7 @@ def total_cost(dataMat, medoids):
     cost = 0
     med_obj = dataMat[med_idx, :]
     # print(med_obj.shape)
-    dis = cdist(dataMat, med_obj, 'euclidean') # 所有样本到中心点的距离
+    dis = cdist(dataMat, med_obj, 'mahalanobis') # 所有样本到中心点的距离
     # print("distance shape: {}".format(dis.shape))
     cost = dis.min(axis=1).sum() # 判责函数
     # print(cost)
@@ -37,17 +37,22 @@ def assment(dataMat, medoids):
     dis = cdist(dataMat, med, 'euclidean')
     # print(dis)s
     idx = dis.argmin(axis=1) # 最小距离对应的idx
-    # print(idx)
+    # print(set(idx))
     for i in range(k):
         medoids[i] = np.where(idx == i) # 字典, 数据已idx的形式存在在对应的分类里
+    # if len(set(idx)) != 5:
+    #     print(set(idx))
+    #     print(medoids)
 
 
-
-def PAM(data, k):
+def PAM(data, k, init_center=[]):
     data = np.mat(data)
     N = len(data)
     cur_medoids = {}
-    cur_medoids['cen_idx'] = random.sample(set(range(N)), k) # 在所有数据中, 随机选取k个点最为初始促中心
+    if len(init_center) > 0:
+        cur_medoids['cen_idx'] = init_center
+    else:
+        cur_medoids['cen_idx'] = random.sample(set(range(N)), k) # 在所有数据中, 随机选取k个点最为初始促中心
     print(cur_medoids['cen_idx'])
     assment(data, cur_medoids) # 初始聚类
     print(cur_medoids)
@@ -66,16 +71,11 @@ def PAM(data, k):
                 if i != j: # 对非中心点一次替换为中心点
                     temp_medoids = copy.deepcopy(cur_medoids)
                     temp_medoids['cen_idx'][j] = i #挨个替换促中心idx
-                    for i in temp_medoids['cen_idx']:
-                        a = temp_medoids['cen_idx'].count(i)
-                        if a > 1:
-                            print(temp_medoids['cen_idx'])
-                    # print(temp_medoids['cen_idx'])
                     assment(data, temp_medoids)
                     total_cost(data, temp_medoids)
                     if best_medoids['t_cost'] > temp_medoids['t_cost']:
                         best_medoids = copy.deepcopy(temp_medoids)
-            print(" ")
+            # print(" ")
         cur_medoids = copy.deepcopy(best_medoids)
         print('current total cost is: %d' % cur_medoids['t_cost'])
     return cur_medoids
@@ -94,15 +94,25 @@ def graph(data, medoids):
     plt.show()
 
 
-def run_pam(k=3, dim=2, N=100):
+def run_pam(k=12, dim=2, N=100):
     # create data with different normal distribution
-    d1 = np.random.normal(1, .2, (N, dim))
-    d2 = np.random.normal(2, .5, (N, dim))
-    d3 = np.random.normal(3, .5, (N, dim))
+    # sudo data
+    # d1 = np.random.normal(1, .2, (N, dim))
+    # d2 = np.random.normal(2, .5, (N, dim))
+    # d3 = np.random.normal(3, .5, (N, dim))
+    # data = np.vstack((d1, d2, d3))
 
-    data = np.vstack((d1, d2, d3))
-    print(data.shape)
-    medoids = PAM(data, k)
+    # real data
+    data = []
+    with open('Flow.txt', 'r') as f:
+        for line in f.readlines():
+            line_ls = line.replace('\n', '').split(' ')
+            a = float(line_ls[-2])
+            b = float(line_ls[-1])
+            data.append([a, b])
+    data = np.array(data)
+    print(data)
+    medoids = PAM(data, k, init_center=[1, 12, 13, 15, 17, 21, 22, 23, 27, 29, 31, 36])
     graph(data, medoids)
 
 
