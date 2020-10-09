@@ -232,9 +232,8 @@ string float_to_string(float a)
 }
 
 
-int k_medoids_cluster(float** data, int len, int k, vector<int> med_idx)
+float k_medoids_cluster(map<string, vector<int>>& cur_medoids, float** data, int len, int k, vector<int> med_idx)
 {
-    map<string, vector<int>> cur_medoids;
     map<string, vector<int>> old_medoids;
     vector<int> old_cen_idx;
     vector<string> key_vec;
@@ -302,34 +301,7 @@ int k_medoids_cluster(float** data, int len, int k, vector<int> med_idx)
         old_med_idx_s = convert_to_set(old_medoids[cen_idx_k]);
         cout << "current total cost is : " << total_cost << endl;
     }
-    cout << "------- final ---------" << endl;
-    cout << total_cost << endl;
-    for (int i : cur_medoids[cen_idx_k])
-    {
-        cout << i << " ";
-    }
-    cout << endl;
-    for (int i = 0; i < k; i++)
-    {
-        vector<int> temp;
-        cur_medoids[to_string(i)] = temp;
-    }
-    for (int i = 0; i < len; i++)
-    {
-        int j = cur_medoids[min_idx_idx_ls_k][i];   
-        int cen_idx = cur_medoids[cen_idx_k][j];
-        cur_medoids[to_string(cen_idx)].push_back(i);
-    }
-    for (int i : cur_medoids[cen_idx_k])
-    {
-        for (int j : cur_medoids[to_string(i)])
-        {
-            cout << j << " ";
-        }
-        cout << endl;
-    }
-    cout << endl;
-    return 0;
+    return total_cost;
 }
 
 
@@ -337,7 +309,7 @@ int main(int argc, char const *argv[])
 {
     string line = "";
     fstream myfile(argv[1]);
-    ofstream write("Flow.txt", ios::out);
+    ofstream write;
     getline(myfile, line); // jump
     vector<string> line_split;
     vector<string> addr_ls;
@@ -366,6 +338,7 @@ int main(int argc, char const *argv[])
         addr_m[addr][package_len_k].push_back(pk_len);
         line_split.clear();
     }
+    write.open("Flow.txt");
     map<string, map<string, float>> comp_res= compute(addr_m);
     int index = 0;
     vector<float> arrt_t_v;
@@ -385,6 +358,7 @@ int main(int argc, char const *argv[])
             index ++;
         }
     }
+    write.close();
     // k - mediods implement
     int len = arrt_t_v.size();
     float** data = new float* [len]; // data matrix
@@ -407,6 +381,35 @@ int main(int argc, char const *argv[])
     {
         med_idx.push_back(stoi(i));
     }
-    k_medoids_cluster(data, len, k, med_idx);
+    map<string, vector<int>> cur_medoids;
+    float total_cost = k_medoids_cluster(cur_medoids, data, len, k, med_idx);
+    cout << "------- final ---------" << endl;
+    write.open("KMedoidsClusters.txt");
+    write << total_cost << endl;
+    for (int i : cur_medoids[cen_idx_k])
+    {
+        write << i << " ";
+    }
+    write << endl;
+    for (int i = 0; i < k; i++)
+    {
+        vector<int> temp;
+        cur_medoids[to_string(i)] = temp;
+    }
+    for (int i = 0; i < len; i++)
+    {
+        int j = cur_medoids[min_idx_idx_ls_k][i];   
+        int cen_idx = cur_medoids[cen_idx_k][j];
+        cur_medoids[to_string(cen_idx)].push_back(i);
+    }
+    for (int i : cur_medoids[cen_idx_k])
+    {
+        for (int j : cur_medoids[to_string(i)])
+        {
+            write << j << " ";
+        }
+        write << endl;
+    }
+    write.close();
     return 0;
 }
