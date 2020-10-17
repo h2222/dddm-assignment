@@ -7,18 +7,18 @@
 using namespace std;
 
 
-double probability(int i, int total)
+double probability(const int& i, const int& total)
 {
     return (double) i / total;
 }
 
-double entropy(double prob1, double prob2)
+double entropy(const double& prob1, const double& prob2)
 {
-    return (double) prob1 * log2(prob1);
+    return (double) (-1) * prob1 * log2(prob1);
 }
 
 
-double ENTROPY(vector<int> target_v, int total)
+double ENTROPY(const vector<int>& target_v, const int& total)
 {
     double res;
     int* p_ct = (int*)malloc(sizeof(int)*10);
@@ -27,12 +27,36 @@ double ENTROPY(vector<int> target_v, int total)
         int ct =  count(begin(target_v), end(target_v), i);
         p_ct[i] = ct;
         double p1 = probability(p_ct[i], total);
-        double p2 = probability(total - p_ct[i], total );
-        cout << "::"<<p1 << "::" << p2 << endl;
-
+        double p2 = probability(total - p_ct[i], total);
+        double ent = entropy(p1, p2);
+        res += ent;
+        // cout << "::"<< ent << endl;
     }
-    return (double)(-1) * res;
+    return (double) res;
 }
+
+
+
+double gain(const double& ent, const vector<double>& prob_v)
+{
+    return 0.;
+}
+
+
+void C45DT(map<string, vector<double>>& table, const vector<string>& head)
+{
+    for (string h_name : head)
+    {   
+        cout << h_name << " ";
+
+        vector<double> curr_v = table[h_name];
+        sort(begin(curr_v), end(curr_v));
+        curr_v.erase(unique(curr_v.begin(), curr_v.end()), curr_v.end()); // 去重
+        cout << curr_v.size() << endl;
+        cout << endl;
+    }
+}
+
 
 
 
@@ -91,13 +115,21 @@ int main(int argc, char const *argv[])
     cout << endl;
     cout << "Hello" << endl;
 
-    cout << probability(1, 14) << endl;
 
-    vector<int> target_v;
-    for (int i = 0; i < 10; i++)
-    {
-        target_v.push_back(i);
-    }
+    C45DT(table, head);
+
+
+    // cout << probability(1, 14) << endl;
+
+    // vector<int> target_v;
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     target_v.push_back(i);
+    // }
+
+
+
+
     // int* p_arr = arr;
 
     // int arr[10];
@@ -111,6 +143,6 @@ int main(int argc, char const *argv[])
     // cout << "sizeof(ptr) = "<< sizeof(i_arr) << 
     //     ", sizeof(*ptr) = " << sizeof(*i_arr) << endl;
 
-    cout << ENTROPY(target_v, 10) << endl;
+    // cout << ENTROPY(target_v, 10) << endl;
     return 0;
 }

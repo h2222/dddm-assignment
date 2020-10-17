@@ -259,6 +259,7 @@ float k_medoids_cluster(map<string, vector<int>>& cur_medoids, float** data, int
     cout << endl;
     while (cur_med_idx_s != old_med_idx_s)
     {
+        bool BREAK = false;
         cout << endl;
         cout << "---------  iteration count: " << iter_counter++ << "  ----------" << endl;
         cout << " before iterating, the total cost is :" << total_cost << endl;
@@ -267,9 +268,17 @@ float k_medoids_cluster(map<string, vector<int>>& cur_medoids, float** data, int
         map_copy(cur_medoids, old_medoids, key_vec);
         for (int i = 0; i < len; i++)
         {
-            for (int j = 0; j < k; j++)
+            bool do_iter = true;
+            for (int cen_idx : cur_medoids[cen_idx_k])
             {
-                if (i != j)
+                if (i == cen_idx)
+                {
+                    do_iter = false;
+                }
+            }
+            if (do_iter == true)
+            {
+                for (int j = 0; j < k; j++)
                 {
                     float temp_total_cost = 0.;
                     map<string, vector<int>> temp_medoids;
@@ -280,12 +289,14 @@ float k_medoids_cluster(map<string, vector<int>>& cur_medoids, float** data, int
                     {
                         total_cost = temp_total_cost;
                         map_copy(temp_medoids, best_medoids, key_vec);
+                        BREAK = true;
                     } 
                     else if(float_to_string(total_cost) ==  float_to_string(temp_total_cost)) 
                     {
                         if (add(temp_medoids[cen_idx_k]) < add(cur_medoids[cen_idx_k]))
                         {
                             map_copy(temp_medoids, best_medoids, key_vec);
+                            BREAK = true;
                         }
                     }
                 }
@@ -303,6 +314,7 @@ float k_medoids_cluster(map<string, vector<int>>& cur_medoids, float** data, int
     }
     return total_cost;
 }
+
 
 
 int main(int argc, char const *argv[])
@@ -385,12 +397,12 @@ int main(int argc, char const *argv[])
     float total_cost = k_medoids_cluster(cur_medoids, data, len, k, med_idx);
     cout << "------- final ---------" << endl;
     write.open("KMedoidsClusters.txt");
-    write << total_cost << endl;
+    cout << total_cost << endl;
     for (int i : cur_medoids[cen_idx_k])
     {
-        write << i << " ";
+        cout << i << " ";
     }
-    write << endl;
+    cout << endl;
     for (int i = 0; i < k; i++)
     {
         vector<int> temp;
@@ -406,9 +418,9 @@ int main(int argc, char const *argv[])
     {
         for (int j : cur_medoids[to_string(i)])
         {
-            write << j << " ";
+            cout << j << " ";
         }
-        write << endl;
+        cout << endl;
     }
     write.close();
     return 0;
