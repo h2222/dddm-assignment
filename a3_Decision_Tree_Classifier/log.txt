@@ -1,0 +1,126 @@
+better threshold: 4.6 max gain ratio: 0.38698
+better threshold: 0.12 max gain ratio: 0.250795
+better threshold: 0.79 max gain ratio: 0.0993444
+better threshold: 15.4 max gain ratio: 0.112774
+better threshold: 0.012 max gain ratio: 0.253998
+better threshold: 2 max gain ratio: 0.121313
+better threshold: 165 max gain ratio: 0.105768
+better threshold: 0.9924 max gain ratio: 0.136873
+better threshold: 2.74 max gain ratio: 0.44176
+better threshold: 0.33 max gain ratio: 0.376037
+better threshold: 8.4 max gain ratio: 0.263534
+epoch: 0 direction: root_init ---best feature: pH best threshold: 2.74best split point: 1---
+stop position: pH-Left, data: 4 
+better threshold: 5.8 max gain ratio: 0.124798
+better threshold: 1.18 max gain ratio: 0.161644
+better threshold: 0.78 max gain ratio: 0.0913095
+better threshold: 0.9 max gain ratio: 0.102998
+better threshold: 0.012 max gain ratio: 0.316283
+better threshold: 1 max gain ratio: 0.0868961
+better threshold: 6 max gain ratio: 0.0835564
+better threshold: 0.99235 max gain ratio: 0.152737
+better threshold: 0.39 max gain ratio: 0.137699
+better threshold: 8.4 max gain ratio: 0.193814
+epoch: 1 direction: pH-Right ---best feature: chlorides best threshold: 0.012best split point: 4---
+stop position: chlorides-Left, data: 7 7 7 7 
+better threshold: 5.8 max gain ratio: 0.116311
+better threshold: 0.37 max gain ratio: 0.0786062
+better threshold: 0 max gain ratio: 0.040467
+better threshold: 1.2 max gain ratio: 0.110558
+better threshold: 3 max gain ratio: 0.0838188
+better threshold: 6 max gain ratio: 0.158656
+better threshold: 0.99235 max gain ratio: 0.22091
+better threshold: 0.43 max gain ratio: 0.165056
+better threshold: 9.05 max gain ratio: 0.216283
+epoch: 2 direction: chlorides-Right ---best feature: density best threshold: 0.99235best split point: 4---
+better threshold: 6.7 max gain ratio: 1
+better threshold: 0.28 max gain ratio: 1
+better threshold: 0.28 max gain ratio: 1
+better threshold: 2.4 max gain ratio: 1
+better threshold: 8 max gain ratio: 1
+better threshold: 109 max gain ratio: 3.73417e-17
+better threshold: 0.44 max gain ratio: 1
+better threshold: 12.7 max gain ratio: 1
+epoch: 3 direction: density-Left ---best feature: free sulfur dioxide best threshold: 8best split point: 2---
+stop position: free sulfur dioxide-Left, data: 8 8 
+better threshold: 6.7 max gain ratio: 1
+better threshold: 0.18 max gain ratio: 1
+better threshold: 0.28 max gain ratio: 1
+better threshold: 0.9 max gain ratio: 1
+better threshold: 100 max gain ratio: 1
+better threshold: 0.39 max gain ratio: 1
+better threshold: 11.7 max gain ratio: 1
+epoch: 4 direction: free sulfur dioxide-Right ---best feature: fixed acidity best threshold: 6.7best split point: 1---
+stop position: fixed acidity-Left, data: 7 
+stop position: fixed acidity-Right, data: 6 
+better threshold: 11.1 max gain ratio: 0.150085
+better threshold: 0.18 max gain ratio: 0.168464
+better threshold: 0 max gain ratio: 0.0596696
+better threshold: 1.2 max gain ratio: 0.114218
+better threshold: 3 max gain ratio: 0.110473
+better threshold: 8 max gain ratio: 0.22172
+better threshold: 0.43 max gain ratio: 0.241445
+better threshold: 9.05 max gain ratio: 0.741525
+epoch: 3 direction: density-Right ---best feature: alcohol best threshold: 9.05best split point: 14---
+stop position: alcohol-Left, data: 4 4 4 4 4 4 4 4 4 4 4 4 4 4 
+better threshold: 5.8 max gain ratio: 0.0943186
+better threshold: 0.25 max gain ratio: 0.2732
+better threshold: 0 max gain ratio: 0.237909
+better threshold: 1.3 max gain ratio: 0.153488
+better threshold: 3 max gain ratio: 0.237552
+better threshold: 9 max gain ratio: 0.331154
+better threshold: 0.43 max gain ratio: 0.383598
+epoch: 4 direction: alcohol-Right ---best feature: sulphates best threshold: 0.43best split point: 14---
+better threshold: 6.9 max gain ratio: 0.120603
+better threshold: 0.48 max gain ratio: 0.120603
+better threshold: 0.03 max gain ratio: 1
+better threshold: 1.8 max gain ratio: 1
+better threshold: 7 max gain ratio: 1
+better threshold: 12 max gain ratio: 1
+epoch: 5 direction: sulphates-Left ---best feature: citric acid best threshold: 0.03best split point: 5---
+stop position: citric acid-Left, data: 5 5 5 5 5 
+stop position: citric acid-Right, data: 4 4 4 4 4 4 4 4 4 
+better threshold: 5.8 max gain ratio: 0.143238
+better threshold: 0.55 max gain ratio: 0.200705
+better threshold: 0 max gain ratio: 0.172087
+better threshold: 1.7 max gain ratio: 0.154652
+better threshold: 3 max gain ratio: 0.255785
+better threshold: 9 max gain ratio: 0.597345
+epoch: 5 direction: sulphates-Right ---best feature: total sulfur dioxide best threshold: 9best split point: 3---
+stop position: total sulfur dioxide-Left, data: 4 4 4 
+better threshold: 6.2 max gain ratio: 0.182029
+better threshold: 0.32 max gain ratio: 0.324037
+better threshold: 0.03 max gain ratio: 0.145435
+better threshold: 1.7 max gain ratio: 0.225015
+better threshold: 3 max gain ratio: 0.529583
+epoch: 6 direction: total sulfur dioxide-Right ---best feature: free sulfur dioxide best threshold: 3best split point: 2---
+stop position: free sulfur dioxide-Left, data: 4 4 
+better threshold: 6.2 max gain ratio: 0.200415
+better threshold: 0.895 max gain ratio: 0.206703
+better threshold: 0.03 max gain ratio: 0.172677
+better threshold: 1.3 max gain ratio: 0.179683
+epoch: 7 direction: free sulfur dioxide-Right ---best feature: volatile acidity best threshold: 0.895best split point: 1554---
+better threshold: 5.6 max gain ratio: 0.127433
+better threshold: 0.12 max gain ratio: 0.181923
+better threshold: 1.7 max gain ratio: 0.41274
+epoch: 8 direction: volatile acidity-Left ---best feature: residual sugar best threshold: 1.7best split point: 295---
+better threshold: 6.2 max gain ratio: 0
+better threshold: 0.07 max gain ratio: 0.738132
+epoch: 9 direction: residual sugar-Left ---best feature: citric acid best threshold: 0.07best split point: 4---
+stop position: citric acid-Left, data: 6 6 6 6 
+better threshold: 6.2 max gain ratio: 0
+epoch: 10 direction: citric acid-Right ---best feature: fixed acidity best threshold: 6.2best split point: 275---
+stop position: fixed acidity-Left, data: 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+stop position: fixed acidity-Right, data: 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+better threshold: 6.2 max gain ratio: 0.446197
+better threshold: 0.12 max gain ratio: 0.132954
+epoch: 9 direction: residual sugar-Right ---best feature: fixed acidity best threshold: 6.2best split point: 206---
+better threshold: 0.09 max gain ratio: 0
+epoch: 10 direction: fixed acidity-Left ---best feature: citric acid best threshold: 0.09best split point: 105---
+stop position: citric acid-Left, data: 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+stop position: citric acid-Right, data: 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+better threshold: 0.12 max gain ratio: 0.321042
+epoch: 10 direction: fixed acidity-Right ---best feature: citric acid best threshold: 0.12best split point: 214---
+stop position: citric acid-Left, data: 6 6 6 6 6 6 6 6 6 6 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 5 5 5 5 6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 5 5 5 6 5 5 5 5 6 5 5 5 5 5 
+stop position: citric acid-Right, data: 6 6 6 6 6 6 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 6 6 6 6 6 6 5 6 6 6 5 6 6 6 6 5 6 5 5 6 5 6 6 6 5 6 6 5 6 6 6 6 6 6 6 6 6 6 6 5 6 6 6 5 5 6 5 6 6 5 5 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 6 6 6 6 6 6 5 6 5 6 6 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6 6 5 6 6 6 5 5 6 5 6 6 6 6 5 6 6 5 6 5 5 5 5 5 6 5 5 5 5 6 5 5 5 5 5 5 5 5 5 5 5 5 5 6 5 6 5 6 5 5 5 5 5 6 5 5 5 6 6 6 6 5 6 6 6 5 6 6 6 6 5 6 6 6 6 5 6 6 6 6 6 6 6 5 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 5 6 6 6 6 6 5 6 6 6 6 6 5 6 6 6 6 6 6 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 6 6 6 6 6 6 5 6 5 6 6 6 6 6 5 6 6 6 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 5 6 5 5 5 6 6 6 6 6 6 6 5 6 6 5 6 6 5 6 6 6 6 6 6 5 5 6 6 6 5 6 5 6 6 6 6 6 5 6 6 6 5 5 6 6 6 5 6 6 6 6 6 6 5 6 6 5 6 6 6 5 6 5 6 5 6 6 5 6 6 6 5 5 6 6 6 5 5 5 6 5 5 5 6 6 5 6 6 5 5 6 5 6 6 6 5 5 6 6 6 6 5 6 5 5 5 5 6 6 5 5 6 5 6 5 6 6 5 5 6 5 5 6 6 5 5 6 6 5 5 5 6 5 6 6 6 5 6 6 5 5 6 6 6 6 6 5 6 6 6 6 6 6 6 6 5 6 6 6 6 6 5 5 6 6 5 6 5 5 6 5 6 6 6 5 5 6 5 6 5 6 6 6 5 6 5 5 6 5 6 6 6 6 5 5 6 6 6 6 5 6 6 6 5 5 5 5 6 6 5 5 6 5 6 5 6 6 5 5 5 6 5 5 6 5 6 6 5 5 6 6 5 5 5 6 6 6 6 6 5 6 6 5 5 6 6 5 5 6 6 5 5 6 5 5 6 5 6 
+stop position: volatile acidity-Right, data: 5 5 5 
